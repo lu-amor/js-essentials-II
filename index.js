@@ -1,255 +1,286 @@
-// 00 - Create a forked repo from this repository and clone it in your local machine.
+console.log("\n ejercicio 1: ")
 
-// 01 - Function
-// getTotal(inventory: [{article: '🍔', price: 15, quantity: '1'}, {article: '🍟', price: 10, quantity: '2'}])
-// it should return the total. for the example data 👆 it should be: 35. (15x1 + 10x2)
+function getTotal(inventory) {
+    return inventory.reduce((acc, e) => acc + e.price * e.quantity, 0);
+}
 
-// 02 - Function
-// countBanana(inventory:['🥑','🍌','🥭', '🍌']})
+console.log("total: " + getTotal([{article: '🍔', price: 15, quantity: '1'}, {article: '🍟', price: 10, quantity: '2'}]));
+// -----------------------------------------------------------------------------------------
+console.log("\n ejercicio 2: ")
 
-// 03- Function
-//   const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-//   console.log(filterEvenNumbers(numbers)); // Output: [2, 4, 6, 8, 10]
+function countBanana(inventory) {
+    const onlyBananas = inventory.filter((e) => e === '🍌');
+    return onlyBananas.length;
+}
 
-// 04 - function
-//   const numbers = [1, 2, 3, 4, 5];
-//   console.log(squareNumbers(numbers)); // Output: [1, 4, 9, 16, 25]
+console.log("🍌 amount: " + countBanana(['🥑','🍌','🥭', '🍌']));
+// -----------------------------------------------------------------------------------------
+console.log("\n ejercicio 3: ")
 
-// 05 - function
-//   const numbers = [1, 2, 3, 4, 5];
-//   console.log(findMax(numbers)); // Output: 5
+function filterEvenNumbers(numbers) {
+    return(numbers.filter((n) => n % 2 === 0));
+}
 
-// 06 - function
-//   const people = [
-//     { name: "Juan", age: 25 },
-//     { name: "Carla", age: 30 },
-//     { name: "Lucia", age: 35 },
-//     { name: "El Chengue", age: 49 }
-//   ];
-//   console.log(calculateAverageAge(people)); // Output: 32.5
+console.log(filterEvenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+// -----------------------------------------------------------------------------------------
+console.log("\n ejercicio 4: ")
 
-// 07 - function  combinedHobbies(persons)
-// Function to combine hobbies from all persons
+function squareNumbers(numbers) {
+    return(numbers.map((n) => n**2));
+}
 
-// const persons = [
-//     {
-//       name: 'Paula',
-//       hobbies: ['reading 📚', 'gardening 🌱', 'painting 🎨']
-//     },
-//     {
-//       name: 'Martin',
-//       hobbies: ['cycling 🚴', 'cooking 🍳', 'hiking 🥾']
-//     },
-//     {
-//       name: 'Juan',
-//       hobbies: ['photography 📸', 'traveling ✈️', 'swimming 🏊‍♂️']
-//     },
-//     {
-//       name: 'Veronica',
-//       hobbies: ['dancing 💃', 'singing 🎤', 'running 🏃‍♀️']
-//     }
-//   ];
+console.log(squareNumbers([1, 2, 3, 4, 5]));
+// -----------------------------------------------------------------------------------------
+console.log("\n ejercicio 5: ")
 
-// combinedHobbies(persons)
-// Expected output:
-// [
-//   'reading 📚', 'gardening 🌱', 'painting 🎨',
-//   'cycling 🚴', 'cooking 🍳', 'hiking 🥾',
-//   'photography 📸', 'traveling ✈️', 'swimming 🏊‍♂️',
-//   'dancing 💃', 'singing 🎤', 'running 🏃‍♀️'
-// ]
+function findMax(numbers) {
+    return(Math.max(...numbers));
+}
 
-// 08 - function printChemicalInfo(chemicals)
-// const chemicals = [
-//     {
-//       compoundId: 'CHEM001',
-//       name: 'Aspirin',
-//       formula: 'C9H8O4',
-//       description: 'Aspirin is a common medication used to reduce pain and inflammation.',
-//       molecularWeight: '180.16 g/mol',
-//       meltingPoint: '135°C',
-//       boilingPoint: '140°C',
-//       solubility: 'Slightly soluble in water'
-//     },
-//     {
-//       compoundId: 'CHEM002',
-//       name: 'Caffeine',
-//       formula: 'C8H10N4O2',
-//       description: 'Caffeine is a stimulant found in coffee, tea, and various energy drinks.',
-//       molecularWeight: '194.19 g/mol',
-//       meltingPoint: '238°C',
-//       boilingPoint: '178°C',
-//       solubility: 'Freely soluble in water'
-//     },
-//     {
-//       compoundId: 'CHEM003',
-//       name: 'Ethanol',
-//       formula: 'C2H6O',
-//       description: 'Ethanol, also known as alcohol, is commonly used as a solvent and in alcoholic beverages.',
-//       molecularWeight: '46.07 g/mol',
-//       meltingPoint: '-114.1°C',
-//       boilingPoint: '78.37°C',
-//       solubility: 'Miscible with water'
-//     }
-//   ];
+console.log("max: " + findMax([1, 2, 3, 4, 5]));
+// -----------------------------------------------------------------------------------------
+console.log("\n ejercicio 6: ")
 
-//printChemicalInfo(chemicals)
-//Expected output
+function calculateAverageAge(people) {
+    let count = 0;
+    let age = 0;
+    for (person of people) {
+        age += person.age;
+        count++;
+    }
+    return(age/ count);
+}
 
-// +-------------------------------------------------------+
-// | Compound ID: CHEM001                                 |
-// | Name: Aspirin                                        |
-// | Formula: C9H8O4                                      |
-// | Description: Aspirin is a common medication used to  |
-// | reduce pain and inflammation.                        |
-// | Molecular Weight: 180.16 g/mol                       |
-// | Melting Point: 135°C                                 |
-// | Boiling Point: 140°C                                 |
-// | Solubility: Slightly soluble in water                |
-// +-------------------------------------------------------+
-// +-------------------------------------------------------+
-// | Compound ID: CHEM002                                 |
-// | Name: Caffeine                                       |
-// | Formula: C8H10N4O2                                   |
-// | Description: Caffeine is a stimulant found in coffee,|
-// | tea, and various energy drinks.                      |
-// | Molecular Weight: 194.19 g/mol                       |
-// | Melting Point: 238°C                                 |
-// | Boiling Point: 178°C                                 |
-// | Solubility: Freely soluble in water                  |
-// +-------------------------------------------------------+
-// +-------------------------------------------------------+
-// | Compound ID: CHEM003                                 |
-// | Name: Ethanol                                        |
-// | Formula: C2H6O                                       |
-// | Description: Ethanol, also known as alcohol, is      |
-// | commonly used as a solvent and in alcoholic beverages|
-// | Molecular Weight: 46.07 g/mol                        |
-// | Melting Point: -114.1°C                              |
-// | Boiling Point: 78.37°C                               |
-// | Solubility: Miscible with water                      |
-// +-------------------------------------------------------+
+const people = [
+        { name: "Juan", age: 25 },
+        { name: "Carla", age: 30 },
+        { name: "Lucia", age: 35 },
+        { name: "El Chengue", age: 49 }
+    ];
+    console.log(calculateAverageAge(people));
+// -----------------------------------------------------------------------------------------
+console.log("\n ejercicio 7: ")
 
-// 09 - function getGetUniqueGuestList(guestList)
-// const guestList = ['Alice 🙆🏻‍♀️', 'Bob 🙍🏼', 'Charlie 👨🏼‍🚀', 'Alice 🙆🏻‍♀️', 'David 🤵🏿‍♂️'];
+function combinedHobbies(people) {
+    let hobbies = [];
+    for (person of people) {
+        hobbies = [...hobbies, ...person.hobbies];
+    }
+    return hobbies;
+}
 
-// Remove duplicated elements from the  guests list
-// Expected getGetUniqueGuestList(guestList)) ['Alice 🙆🏻‍♀️', 'Bob 🙍🏼', 'Charlie 👨🏼‍🚀', 'David 🤵🏿‍♂️']
+const persons = [
+    {
+        name: 'Paula',
+        hobbies: ['reading 📚', 'gardening 🌱', 'painting 🎨']
+    },
+    {
+        name: 'Martin',
+        hobbies: ['cycling 🚴', 'cooking 🍳', 'hiking 🥾']
+    },
+    {
+        name: 'Juan',
+        hobbies: ['photography 📸', 'traveling ✈️', 'swimming 🏊‍♂️']
+    },
+    {
+        name: 'Veronica',
+        hobbies: ['dancing 💃', 'singing 🎤', 'running 🏃‍♀️']
+    }
+];
 
-// 10 - function showUserProfiles(user)
-// User data
+console.log(combinedHobbies(persons));
+// -----------------------------------------------------------------------------------------
+console.log("\n ejercicio 8: ")
 
-// const user1 = {
-//     id: 1,
-//     name: 'Carol Smith',
-//     profile: {
-//       social: {
-//          twitter: 'carol.smith',
-//          facebook: 'carol.smith77'
-//      }
-//    }
-//};
+function printChemicalInfo(chemicals) {
+    let maxLineLength = 30;
+    chemicals.forEach(chemical => {
+        console.log("+-------------------------------------------------------+");
+        console.log(`| Compound ID: ${chemical.compoundId.padEnd(41)}|`);
+        console.log(`| Name: ${chemical.name.padEnd(48)}|`);
+        console.log(`| Formula: ${chemical.formula.padEnd(45)}|`);
+        console.log(`| Description: ${chemical.description.padEnd(38)}|`);
+        console.log(`| Molecular Weight: ${chemical.molecularWeight.padEnd(36)}|`);
+        console.log(`| Melting Point: ${chemical.meltingPoint.padEnd(39)}|`);
+        console.log(`| Boiling Point: ${chemical.boilingPoint.padEnd(39)}|`);
+        console.log(`| Solubility: ${chemical.solubility.padEnd(42)}|`);
+        console.log("+-------------------------------------------------------+");
+    });
+}
 
-// const user2 = {
-//     id: 2,
-//     name: 'Jane Smith',
-//     profile: {
-//       email: 'jane.smith@example.com'
-//     }
-//};
+const chemicals = [
+    {
+        compoundId: 'CHEM001',
+        name: 'Aspirin',
+        formula: 'C9H8O4',
+        description: 'Aspirin is a common medication used to reduce pain and inflammation.',
+        molecularWeight: '180.16 g/mol',
+        meltingPoint: '135°C',
+        boilingPoint: '140°C',
+        solubility: 'Slightly soluble in water'
+    },
+    {
+        compoundId: 'CHEM002',
+        name: 'Caffeine',
+        formula: 'C8H10N4O2',
+        description: 'Caffeine is a stimulant found in coffee, tea, and various energy drinks.',
+        molecularWeight: '194.19 g/mol',
+        meltingPoint: '238°C',
+        boilingPoint: '178°C',
+        solubility: 'Freely soluble in water'
+    },
+    {
+        compoundId: 'CHEM003',
+        name: 'Ethanol',
+        formula: 'C2H6O',
+        description: 'Ethanol, also known as alcohol, is commonly used as a solvent and in alcoholic beverages.',
+        molecularWeight: '46.07 g/mol',
+        meltingPoint: '-114.1°C',
+        boilingPoint: '78.37°C',
+        solubility: 'Miscible with water'
+    }
+];
 
-//   showUserProfile(user1); // Expected output: 'carol.smith, carol.smith77'
-//   showUserProfile(user2); // Expected output: 'jane.smith@example.com'
+printChemicalInfo(chemicals)
+// -----------------------------------------------------------------------------------------
+console.log("\n ejercicio 9: ")
 
-// 11 - function sortLeaderBoardByScoreDesc(leaderBoard)
-// The function should sort the players by score as it's displayed on the expected output
+function getUniqueGuestList(guestList) {
+    const unique = new Set(guestList);
+    return Array.from(unique);
+}
 
-// const leaderBoard = [
-//   { player: "John", score: 80 },
-//   { player: "Charlie", score: 20 },
-//   { player: "Julio", score: 50 },
-//   { player: "Bob", score: 80 },
-//   { player: "Bobby", score: 11 },
-//   { player: "Tommy", score: 43 },
-//   { player: "Eric", score: 99 },
-//   { player: "Alice", score: 100 },
-//   { player: "Alfred", score: 30 },
-// ];
+console.log(getUniqueGuestList(['Alice 🙆🏻‍♀️', 'Bob 🙍🏼', 'Charlie 👨🏼‍🚀', 'Alice 🙆🏻‍♀️', 'David 🤵🏿‍♂️']));
+// -----------------------------------------------------------------------------------------
+console.log("\n ejercicio 10: ")
 
-// Expected output:
-// [
-//   { player: 'Alice', score: 100 },
-//   { player: 'Eric', score: 99 },
-//   { player: 'John', score: 80 },
-//   { player: 'Bob', score: 80 },
-//   { player: 'Julio', score: 50 },
-//   { player: 'Tommy', score: 43 },
-//   { player: 'Alfred', score: 30 },
-//   { player: 'Charlie', score: 20 },
-//   { player: 'Bobby', score: 11 }
-// ]
+function showUserProfile(user) {
+    console.log("\n" + user.name);
+    console.log("twitter: " + user.profile.social?.twitter || "no twitter");
+    console.log("facebook: " + user.profile.social?.facebook || "no facebook");
+    console.log("email: " + user.profile?.email || "no email");
+}
 
-// 12 - function
+const user1 = {
+    id: 1,
+    name: 'Carol Smith',
+    profile: {
+        social: {
+            twitter: 'carol.smith',
+            facebook: 'carol.smith77'
+        }
+    }
+};
 
-// function getTopFiveWorstPlayers(leaderBoard)
+const user2 = {
+    id: 2,
+    name: 'Jane Smith',
+    profile: {
+        email: 'jane.smith@example.com'
+    }
+};
 
-// Expected output:
-// [
-//   { player: 'Bobby', score: 11 },
-//   { player: 'Charlie', score: 20 },
-//   { player: 'Alfred', score: 30 },
-//   { player: 'Tommy', score: 43 },
-//   { player: 'Julio', score: 50 }
-// ]
+showUserProfile(user1);
+showUserProfile(user2);
+// -----------------------------------------------------------------------------------------
+console.log("\n ejercicio 11: ")
 
-// NOTE: ⚠️ original array shouldn't be modified. or we are missing players.
+function sortLeaderBoardByScoreDesc(leaderBoard) {
+    return leaderBoard.sort((a, b) => b.score - a.score);
+}
 
-// 13 - function safeCopy()
-// const companyHierarchy = {
-//     name: 'Company',
-//     departments: [
-//       {
-//         name: 'Engineering',
-//         head: 'Alice',
-//         subDepartments: [
-//           {
-//             name: 'Backend',
-//             head: 'Bob',
-//             employees: ['Charlie', 'David']
-//           },
-//           {
-//             name: 'Frontend',
-//             head: 'Eve',
-//             employees: ['Frank', 'Grace']
-//           }
-//         ]
-//       },
-//       {
-//         name: 'Sales',
-//         head: 'Henry',
-//         employees: ['Isaac', 'Jane']
-//       }
-//     ]
-//   };
+const leaderBoard = [
+    { player: "John", score: 80 },
+    { player: "Charlie", score: 20 },
+    { player: "Julio", score: 50 },
+    { player: "Bob", score: 80 },
+    { player: "Bobby", score: 11 },
+    { player: "Tommy", score: 43 },
+    { player: "Eric", score: 99 },
+    { player: "Alice", score: 100 },
+    { player: "Alfred", score: 30 },
+];
 
-// Deep copy function
-// function safeCopy(obj) {
-//      ToDo (complete the function here...)
-//  }
+console.log(sortLeaderBoardByScoreDesc(leaderBoard));
+// -----------------------------------------------------------------------------------------
+console.log("\n ejercicio 12: ")
 
-//   // Example usage
-//   const copiedHierarchy = safeCopy(companyHierarchy);
+function getTopFiveWorstPlayers(leaderBoard) {
+    return (leaderBoard.sort((a, b) => a.score - b.score)).slice(0, 5);
+}
 
-//   // Modify the copied hierarchy
-//   copiedHierarchy.departments.push({
-//     name: 'Marketing',
-//     head: 'Karen',
-//     employees: ['Liam', 'Mia']
-//   });
+console.log(getTopFiveWorstPlayers(leaderBoard));
+// -----------------------------------------------------------------------------------------
+console.log("\n ejercicio 13: ")
 
-//   // Verify independence
-//   console.log('Original Company Hierarchy:');
-//   console.log(companyHierarchy);
+const companyHierarchy = {
+    name: 'Company',
+    departments: [
+    {
+        name: 'Engineering',
+        head: 'Alice',
+        subDepartments: [
+        {
+            name: 'Backend',
+            head: 'Bob',
+            employees: ['Charlie', 'David']
+        },
+        {
+            name: 'Frontend',
+            head: 'Eve',
+            employees: ['Frank', 'Grace']
+        }
+        ]
+    },
+    {
+        name: 'Sales',
+        head: 'Henry',
+        employees: ['Isaac', 'Jane']
+    }
+    ]
+};
 
-//   console.log('Copied Company Hierarchy with Modifications:');
-//   console.log(copiedHierarchy);
+function printHierarchy(hierarchy, indent = 0) {
+    const indentation = ' '.repeat(indent);
+
+    console.log(`${indentation}Name: ${hierarchy.name}`);
+    
+    if (hierarchy.head) {
+        console.log(`${indentation}Head: ${hierarchy.head}`);
+    }
+
+    if (hierarchy.employees) {
+        console.log(`${indentation}Employees: ${hierarchy.employees.join(', ')}`);
+    }
+
+    if (hierarchy.departments) {
+        console.log(`${indentation}Departments:`);
+        hierarchy.departments.forEach(department => {
+            printHierarchy(department, indent + 4);
+        });
+    }
+
+    if (hierarchy.subDepartments) {
+        console.log(`${indentation}SubDepartments:`);
+        hierarchy.subDepartments.forEach(subDepartment => {
+            printHierarchy(subDepartment, indent + 4);
+        });
+    }
+}
+
+function safeCopy(obj) {
+    return {...obj};
+}
+
+
+console.log('Original Company Hierarchy:');
+console.log(printHierarchy(companyHierarchy));
+
+const copiedHierarchy = safeCopy(companyHierarchy);
+copiedHierarchy.departments.push({
+    name: 'Marketing',
+    head: 'Karen',
+    employees: ['Liam', 'Mia']
+});
+console.log("\n" + 'Copied Company Hierarchy with Modifications:');
+console.log(printHierarchy(copiedHierarchy));
